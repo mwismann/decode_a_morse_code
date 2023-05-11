@@ -9,4 +9,12 @@ def decode_char(char)
   morse_hash[char]
 end
 
-puts decode_char('.-')
+def decode_word(string)
+  string.split(' ').map { |char| decode_char(char) }.join
+end
+
+def decode(message)
+  message.split('  ').map { |word| decode_word(word) }.join(' ')
+end
+
+puts decode(".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...")
